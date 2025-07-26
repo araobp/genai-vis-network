@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Vis Network | Basic usage</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/10.0.1/standalone/umd/vis-network.min.js" integrity="sha512-5bqVAFpotn4LWFjRvduFOUzMbdzCQ+misgkoS4BENwJ8jDFsm8v6tRftuWs/js7Bd34KDAHHx8g5SBqk4LCZlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <style type="text/css">
+      #mynetwork {
+        width: 600px;
+        height: 400px;
+        border: 1px solid lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Bach Network</p>
+
+    <div id="bach_network"></div>
+
+    <script type="text/javascript" src="./data/bach_network.js"></script>
+      
+    <script type="text/javascript">
+      // create an array with nodes
+      var nodes = new vis.DataSet(nodes_json);
+
+      // create an array with edges
+      var edges = new vis.DataSet(edges_json);
+      
+      // create a network
+      var container = document.getElementById("bach_network");
+      var data = {
+        nodes: nodes,
+        edges: edges,
+      };
+      var options = {};
+      var network = new vis.Network(container, data, options);
+    </script>
+  </body>
+</html>
